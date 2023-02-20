@@ -16,7 +16,7 @@ rule merge_fastq:
     resources:
         runtime= 5
     shell:
-        "cat {input}/* > {output}"
+        "cat {input}/*.fastq > {output}"
 
 rule multiline_fastq_to_four_lines:
     input:

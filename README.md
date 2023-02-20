@@ -14,7 +14,7 @@ git clone https://github.com/duolinwang/REDD && cd REDD
 ```
 
 **Installation**: install REDD, you should install mamba or conda first. 
-To install mamba, if you already have conda 4.14.0 or upper installed you can skip this step.
+To install mamba, **if you already have conda 4.14.0 or upper installed you can skip this step.**
 ```
 wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh
 bash Mambaforge-Linux-x86_64.sh

@@ -185,11 +185,11 @@ rule nanopolish_eventalign:
         ref_transcriptome =  "intermediates/reference/{sample}.transcriptome.fa",
     output:
         "intermediates/eventalign/{sample}_{scatteritem}_eventalign.txt"
-    threads: 2
+    threads: 4
     resources:
         # event_align will cost 150 core hours per flowcell
         #runtime=  300 * 60 // 3
-        runtime= 24 * 60
+        runtime= 48 * 60
     benchmark: 
         "intermediates/eventalign/{sample}_{scatteritem}_eventalign.benchmark.tsv"
     run:

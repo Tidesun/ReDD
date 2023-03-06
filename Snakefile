@@ -163,6 +163,9 @@ rule nanopolish_index:
         fastq = "intermediates/splitted/{sample}_{scatteritem}.U2T.fastq"
     output:
        "intermediates/splitted/{sample}_{scatteritem}.U2T.fastq.index"
+       "intermediates/splitted/{sample}_{scatteritem}.U2T.fastq.index.fai"
+       "intermediates/splitted/{sample}_{scatteritem}.U2T.fastq.index.gzi"
+       "intermediates/splitted/{sample}_{scatteritem}.U2T.fastq.index.readdb"
     threads: 1
     resources:
         # nanopolish_index will cost 24 core hourse per flowcell

@@ -162,9 +162,9 @@ rule nanopolish_index:
         fast5_dir = config['input_fast5_folder'],
         fastq = "intermediates/splitted/{sample}_{scatteritem}.U2T.fastq"
     output:
-       "intermediates/splitted/{sample}_{scatteritem}.U2T.fastq.index"
-       "intermediates/splitted/{sample}_{scatteritem}.U2T.fastq.index.fai"
-       "intermediates/splitted/{sample}_{scatteritem}.U2T.fastq.index.gzi"
+       "intermediates/splitted/{sample}_{scatteritem}.U2T.fastq.index",
+       "intermediates/splitted/{sample}_{scatteritem}.U2T.fastq.index.fai",
+       "intermediates/splitted/{sample}_{scatteritem}.U2T.fastq.index.gzi",
        "intermediates/splitted/{sample}_{scatteritem}.U2T.fastq.index.readdb"
     threads: 1
     resources:

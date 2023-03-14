@@ -36,9 +36,10 @@ fi
 ##annotation on filtered sites
 
 mv $site_tab $site_tab.temp
-head $site_tab.temp
+#head $site_tab.temp
 
-awk -F '\t' -v OFS="\t" 'ARGIND==1{hash_cdna[$1"\t"$2]++}ARGIND==2{if($1"\t"$2 in hash_site) hash_db[$1"\t"$2]++}ARGIND==3{if($1"\t"$2 in hash_site) hash_snp[$1"\t"$2]++}ARGIND==4{if($1"\t"$2 in hash_site) hash_m6a[$1"\t"$2]++}ARGIND==5{hash_alu[$1"\t"$2]++}ARGIND==6{site=$1"\t"$2; db="not_in_REDIportal"; snp="non_snp"; m6a="non_m6A_motif"; if(site in hash_db) db="REDIportal"; if(site in hash_snp) snp="snp"; label="non_Alu"; if(site in hash_m6a) m6a="m6A_motif"; if(site in hash_alu) label="Alu"; print $0,db,snp,m6a,label; }' $site_tab.temp $REDI_txt $snp_bed $m6A_motif_bed $temp_bed_2 $site_tab.temp  > $site_tab
+awk -F '\t' -v OFS="\t" 'ARGIND==1{hash_cdna[$1"\t"$2]++}ARGIND==2{if($1"\t"$2 in hash_site) hash_db[$1"\t"$2]++}ARGIND==3{if($1"\t"$2 in hash_site) hash_snp[$1"\t"$2]++}ARGIND==4{if($1"\t"$2 in hash_site) hash_m6a[$1"\t"$2]++}ARGIND==5{hash_alu[$1"\t"$2]++}ARGIND==6{site=$7"\t"$8; db="not_in_REDIportal"; snp="non_snp"; m6a="non_m6A_motif"; if(site in hash_db) db="REDIportal"; if(site in hash_snp) snp="snp"; label="non_Alu"; if(site in hash_m6a) m6a="m6A_motif"; if(site in hash_alu) label="Alu"; print $0,db,snp,m6a,label; }' $site_tab.temp $REDI_txt $snp_bed $m6A_motif_bed $temp_bed_2 $site_tab.temp  > $site_tab
+
 rm $site_tab.temp
 
 if [ $filter_snp = True ];
@@ -56,3 +57,4 @@ then
     awk -F '\t' -v OFS="\t" 'ARGIND==1{ if($13=="non_m6A_motif") print $0 }' $site_tab.temp > $site_tab
     rm $site_tab.temp
 fi
+
